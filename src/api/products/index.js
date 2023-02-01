@@ -73,9 +73,9 @@ productsRouter.delete("/:productId", async (req, res, next) => {
     const numberOfDeletedRows = await ProductsModel.destroy({
       where: { id: req.params.productId },
     });
-
+    console.log("numberOfDeletedRows", numberOfDeletedRows);
     if (numberOfDeletedRows === 1) {
-      res.send({ message: `Product with id: ${req.params.productId} successfully deleted` });
+      res.send(`The product with id: ${req.params.productId} successfully deleted`);
     } else {
       next(NotFound(`The product with id: ${req.params.productId} not in the db`));
     }
