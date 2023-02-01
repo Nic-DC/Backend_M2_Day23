@@ -20,7 +20,7 @@ productsRouter.get("/", async (req, res, next) => {
   try {
     const query = {};
     if (req.query.name) {
-      query.firstName = { [Op.iLike]: `${req.query.name}%` };
+      query.name = { [Op.iLike]: `${req.query.name}%` };
       const filteredProducts = await ProductsModel.findAll({
         where: { ...query },
         attributes: ["name", "category", "price"],
