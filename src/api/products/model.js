@@ -1,12 +1,7 @@
-import { DataType, DataTypes } from "sequelize";
-import sequelize from "../../db";
+import { DataTypes } from "sequelize";
+import sequelize from "../../db.js";
 
 const ProductsModel = sequelize.define("product", {
-  id: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true,
-  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
